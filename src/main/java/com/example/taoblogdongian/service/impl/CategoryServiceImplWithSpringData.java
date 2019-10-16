@@ -5,12 +5,19 @@ import com.example.taoblogdongian.repository.CategoryRepository;
 import com.example.taoblogdongian.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class CategoryServiceImplWithSpringData implements CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
     @Override
     public Iterable<Category> findAll() {
         return categoryRepository.findAll();
+    }
+
+    @Override
+    public List<Category> findAllRest() {
+        return (List<Category>) categoryRepository.findAll();
     }
 
     @Override
