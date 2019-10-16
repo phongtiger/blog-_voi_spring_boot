@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Blog</title>
+    <title th:text="#{home.title}"></title>
 </head>
 <body>
-<h1>Welcome my blog</h1>
-<p><a href="/login">login</a></p>
+<h1><u th:text="#{home.Welcomemyblog}"></u></h1>
+<p><a href="/login"><u th:text="#{home.Login}"></u></a></p>
 
 <form>
-    Search by tittle:
+    <u th:text="#{home.Searchbytitle}"></u>
     <input name="s" type="text"/>
-    <input type="submit" value="Search"/>
+    <button type="submit"><u th:text="#{home.Search}"></u></button>
 </form><br/>
 
 <form th:action="@{/home/search-category}" th:object="${blog}" method="post">
     <select th:field="*{category}" >
         <option th:each="p : ${categories}" th:value="${p.id}" th:text="${p.name}"></option>
     </select>
-    <input type="submit" value="Choice"/>
+    <button type="submit"><u th:text="#{home.Choice}"></u></button>
 </form><br/>
 <table border="1">
     <tr>
-        <th>Tittle</th>
-        <th>Content</th>
-        <th>Category</th>
+        <th th:text="#{home.Title}"></th>
+        <th th:text="#{home.Content}"></th>
+        <th th:text="#{home.Category}"></th>
     </tr>
     <th:block th:each="blog : ${blogs}">
         <tr>
@@ -34,10 +34,11 @@
     </th:block>
 </table>
 <div>
-    <a th:href="@{'/blogs'(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}">Previous</a>
+    <a th:href="@{'/blogs'(page=${blogs.number - 1})}" th:if="${blogs.hasPrevious()}"><u th:text="#{home.Previous}"></u></a>
     <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>
-    <a th:href="@{'/blogs'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}">Next</a>
+    <a th:href="@{'/blogs'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}"><u th:text="#{home.Next}"></u></a>
 </div>
 <br/>
+Language: <a href="?lang=en">English</a> | <a href="?lang=haw">Viet Nam</a>
 </body>
 </html>

@@ -11,12 +11,12 @@ import java.text.ParseException;
 import java.util.Locale;
 
 @Component
-public class ProvinceFormatter implements Formatter<Category> {
+public class CategoryFormatter implements Formatter<Category> {
 
     private CategoryService categoryService;
 
     @Autowired
-    public ProvinceFormatter(CategoryService categoryService) {
+    public CategoryFormatter(CategoryService categoryService) {
         this.categoryService = categoryService;}
 
     @Override
