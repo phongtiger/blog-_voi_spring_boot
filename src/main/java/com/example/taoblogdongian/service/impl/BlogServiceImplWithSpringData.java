@@ -45,8 +45,8 @@ public class BlogServiceImplWithSpringData implements BlogService {
     }
 
     @Override
-    public Page<Blog> findAllByTittleContaining(String tittle, Pageable pageable) {
-        return blogRepository.findAllByTittleContaining(tittle, pageable);
+    public Page<Blog> findAllByTittleContaining(String search, Pageable pageable) {
+        return blogRepository.findAllByTittleContaining(search, pageable);
     }
 
     @Override

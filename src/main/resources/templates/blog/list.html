@@ -32,6 +32,7 @@
             <td th:text="${blog.tittle}"></td>
             <td th:text="${blog.content}"></td>
             <td th:text="${blog.category?.name}"></td>
+            <td><img th:src="${blog.image}" width="200px" height="200px"></td>
             <td><a th:href="@{/blog/edit-blog/__${blog.id}__ }">Edit</a></td>
             <td><a th:href="@{/blog/delete-blog/__${blog.id}__ }">Delete</a></td>
         </tr>

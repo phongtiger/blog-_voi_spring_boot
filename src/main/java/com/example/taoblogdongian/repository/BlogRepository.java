@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface BlogRepository extends PagingAndSortingRepository<Blog,Long> {
     Iterable<Blog> findAllByCategory(Category category);
-    Page<Blog> findAllByTittleContaining(String tittle, Pageable pageable);
+    Page<Blog> findAllByTittleContaining(String string, Pageable pageable);
     Page<Blog> findAllByCategory_Id(Long id, Pageable pageable);
     List<Blog> findAllByCategory_Id(Long id);
 }

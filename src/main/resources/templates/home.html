@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title th:text="#{home.title}"></title>
+    <meta charset="UTF-8">
 </head>
 <body>
 <h1><u th:text="#{home.Welcomemyblog}"></u></h1>
@@ -24,12 +25,14 @@
         <th th:text="#{home.Title}"></th>
         <th th:text="#{home.Content}"></th>
         <th th:text="#{home.Category}"></th>
+        <th th:text="#{home.Image}"></th>
     </tr>
     <th:block th:each="blog : ${blogs}">
         <tr>
             <td th:text="${blog.tittle}"></td>
             <td th:text="${blog.content}"></td>
             <td th:text="${blog.category?.name}"></td>
+            <td><img th:src="${blog.image}" width="200px" height="200px"></td>
         </tr>
     </th:block>
 </table>
@@ -39,6 +42,6 @@
     <a th:href="@{'/blogs'(page=${blogs.number + 1})}" th:if="${blogs.hasNext()}"><u th:text="#{home.Next}"></u></a>
 </div>
 <br/>
-Language: <a href="?lang=en">English</a> | <a href="?lang=haw">Viet Nam</a>
+Language: <a href="?lang=en">English</a> | <a href="?lang=vi">Việt Nam</a>
 </body>
 </html>
